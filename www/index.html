@@ -17,6 +17,7 @@
 	
 	$(document).ready(function() {
       alert('hi! turn on Accelerometer');
+      var scor == 0 ;
 	  
     });
 
@@ -57,7 +58,10 @@
     function onSuccess(acceleration) {
 		var p = $("#immo1");
 		var position = p.position();
-		$("#posi").text( " top: " + position.top );
+		if (position.top >= 400){
+			$("#scor1").text(scor=scor+1);	
+		}
+		//$("#posi").text( " top: " + position.top );
 		
         var element = document.getElementById('accelerometer');
         element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
@@ -129,7 +133,7 @@
   </head>
   <body>
     <div id="accelerometer">Waiting for accelerometer...</div>
-    <div id="score" ><h3 style="width:30px">Score</h3><h1 style="width:30px" >999</h1></div>
+    <div id="score" ><h3 style="width:30px">Score</h3><h1 id="scor1" style="width:30px" >0</h1></div>
     <div id="slide" >
     <marquee
 style="z-index:2;
